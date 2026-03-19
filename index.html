@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Regexa Vanilla</title>
+
+        <link rel="shortcut icon" href="src/img/vanilla_icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="src/style/style.css">
+        <link rel="stylesheet" href="src/style/header.css">
+        <link rel="stylesheet" href="src/style/table.css">
+        <link rel="stylesheet" href="src/style/notifications.css">
+        <link rel="stylesheet" href="src/style/form.css">
+    </head>
+    <body>
+        <header class="header-nav" id="header-nav">
+            <div class="icon-area">
+                <img src="src/img/vanilla_icon.png" alt="" class="icon">
+                <span class="icon-text">Regexa Vanilla</span>
+            </div>
+            <div class="controls">
+                <button class="btn btn-add" id="add-btn" onclick="showForm()">Agregar</button>
+                <button class="btn btn-clear" id="clear-btn" onclick="showWarning('Seguro que desea limpiar la tabla?', () => { clearTable() })">Limpiar</button>
+            </div>
+        </header>
+        <main class="workspace">
+            <div class="table-wrapper">
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th id="col-user-id">Id</th>
+                            <th id="col-user-name">Nombre</th>
+                            <th id="col-user-phone">Telefono</th>
+                            <th id="col-user-email">Correo</th>
+                            <th id="col-user-rfc">Rfc</th>
+                            <th id="col-user-curp">Curp</th>
+                            <th id="col-actions">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body" id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <section id="notification-screen">
+            <div class="warning">
+                <h2>¡Advertencia!</h2>
+                <p>. . .</p>
+                <div class="controls">
+                    <button id="confirm-btn" class="btn btn-primary">Confirmar</button>
+                    <button id="cancel-btn" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </section>
+        <section id="form-screen">
+            <div class="form">
+                <h2 id="form-title">Agregar Usuario</h2>
+                <div id="user-form">
+                    <input type="hidden" id="user-id" />
+                    <div class="field">
+                        <input type="text" class="form-input" id="user-name" placeholder=" " />
+                        <label for="user-name">Nombre</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="form-input" id="user-phone" placeholder=" " />
+                        <label for="user-phone">Telefono</label>
+                    </div>
+                    <div class="field">
+                        <input type="email" class="form-input" id="user-email" placeholder=" " />
+                        <label for="user-email">Correo</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="form-input" id="user-rfc" placeholder=" " />
+                        <label for="user-rfc">RFC</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="form-input" id="user-curp" placeholder=" " />
+                        <label for="user-curp">CURP</label>
+                    </div>
+                    <div class="form-controls">
+                        <button id="save-form-btn" class="btn btn-primary" onclick="submitForm()">Guardar</button>
+                        <button id="cancel-form-btn" class="btn btn-secondary" onclick="hideForm()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="table-manager.js"></script>
+        <script src="warning-manager.js"></script>
+        <script src="user-regex.js"></script>
+        <script src="form-manager.js"></script>
+        <script>
+            loadUsers();
+        </script>
+        
+    </body>
+</html>
