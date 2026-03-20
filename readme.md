@@ -47,7 +47,7 @@ Proyecto desarrollado para la asignatura de **Lenguajes y Autómatas** utilizand
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 regexa_vanilla/
